@@ -1,0 +1,12 @@
+{
+	"name": "Mercado do seu Zé", 
+	"email": "contato@seuze.com.br", 
+	"whatsapp": "983928420", 
+	"latitude": -46.8234923, 
+	"longitude": -35.2847912, 
+	"city": "São Paulo", 
+	"uf": "SP", 
+	"items": [
+		6
+	]
+}

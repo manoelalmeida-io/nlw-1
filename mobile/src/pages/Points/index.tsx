@@ -17,6 +17,7 @@ interface Item {
 interface Point {
   id: number;
   image: string;
+  image_url: string;
   name: string;
   latitude: number;
   longitude: number;
@@ -72,9 +73,10 @@ const Points = () => {
         items: selectedItems
       }
     }).then(response => {
-      setPoints(response.data)
+      console.log(response.data);
+      setPoints(response.data);
     });
-  }, []);
+  }, [selectedItems]);
 
   function handleNavigateBack() {
     navigation.goBack();
@@ -86,15 +88,12 @@ const Points = () => {
 
   function handleSelectItem(id: number) {
     const alreadySelected = selectedItems.findIndex(item => item === id);
-    console.log(alreadySelected);
 
     if (alreadySelected > 0) {
       const filteredItems = selectedItems.filter(item => item !== id);
-      console.log(filteredItems);
       setSelectedItems(filteredItems);
     } else {
       setSelectedItems([...selectedItems, id]);
-      console.log(...selectedItems, id);
     }
   }
 
@@ -131,7 +130,7 @@ const Points = () => {
                   }}
                 >
                   <View style={styles.mapMarkerContainer}>
-                    <Image style={styles.mapMarkerImage} source={{ uri: point.image }} />
+                    <Image style={styles.mapMarkerImage} source={{ uri: point.image_url }} />
                     <Text style={styles.mapMarkerTitle}>{point.name}</Text>
                   </View>
                 </Marker>
